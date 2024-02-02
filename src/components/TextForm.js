@@ -27,6 +27,14 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const handleLocation = () => {
+        console.log(navigator.geolocation);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("Latitude is :", position.coords.latitude);
+            console.log("Longitude is :", position.coords.longitude);
+          });
+    }
+
     return (
         <>
         <div className='container'>
@@ -39,6 +47,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
             <button className="btn btn-danger mx-2" onClick={handleClearClick}>Clear</button>
+            <button className="btn btn-info mx-2" onClick={handleLocation}>Locate</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
