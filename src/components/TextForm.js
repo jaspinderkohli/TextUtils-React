@@ -35,6 +35,13 @@ export default function TextForm(props) {
           });
     }
 
+    // credits : https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+    const handleCopy = () => {
+        var text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
     return (
         <>
         <div className='container'>
@@ -48,6 +55,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
             <button className="btn btn-danger mx-2" onClick={handleClearClick}>Clear</button>
             <button className="btn btn-info mx-2" onClick={handleLocation}>Locate</button>
+            <button className="btn btn-info mx-2" onClick={handleCopy}>Copy</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
