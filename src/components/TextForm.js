@@ -9,6 +9,7 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         console.log('Uppercase was clicked' + text);
         setText(text.toUpperCase());
+        props.showAlert("Converted to Uppercase", "success");
     }
 
     const handleOnChange = (event) => {
@@ -20,11 +21,13 @@ export default function TextForm(props) {
     const handleLoClick = () => {
         console.log('Lowercase was clicked' + text);
         setText(text.toLowerCase());
+        props.showAlert("Converted to Lowercase", "success");
     }
 
     const handleClearClick = () => {
         let newText = '';
         setText(newText);
+        props.showAlert("Text Cleared", "success");
     }
 
     const handleLocation = () => {
@@ -32,7 +35,9 @@ export default function TextForm(props) {
         navigator.geolocation.getCurrentPosition(function(position) {
             console.log("Latitude is :", position.coords.latitude);
             console.log("Longitude is :", position.coords.longitude);
+            props.showAlert("Location fetched", "success");
           });
+        
     }
 
     // credits : https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
